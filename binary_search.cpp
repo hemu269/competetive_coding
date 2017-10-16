@@ -13,21 +13,36 @@
 using namespace std;
 #define long long int ll;
 
-int binary_search()
+int* binary_search(int *start,int *end,int find)
 {
+	int *mid=(start+end)/2;
+	while(start<end)
+	{
+		if(*mid==find)
+		{
+			return mid;
+		}
+		else if(*mid<find)
+		{
+			start = mid+1;
+		}
+		else
+		{
+			end = mid;
+		}
+	}
+	return start-1;
+}
 
+int* lower__bound(int *start,int *end,int find)
+{
+	return start;
 
 }
 
-int lower__bound()
+int* upper__bound(int *start,int *end,int find)
 {
-
-
-}
-
-int upper__bound()
-{
-
+	return start;
 
 }
 
@@ -43,7 +58,7 @@ int main()
 		cin>>array[i];
 	}
 
-	sort(a,a+n);     // sorts the given array . we can do binary search iff the array is sorted
+	sort(array,array+n);     // sorts the given array . we can do binary search iff the array is sorted
 
 	int queries;
 	cin>>queries;    //  no.of queries
@@ -56,7 +71,7 @@ int main()
 		if(i==0)          // whether the element is present in the array or not
 		{
 			cin>>j;
-			int is_found = binary_search(a,a+n,j);    // here a is pointer for 1st element
+			int is_found = binary_search(array,array+n,j)-array;    // here array is pointer for 1st element
 			if(is_found==-1)
 			{
 				cout<<"element not found\n";
@@ -70,17 +85,17 @@ int main()
 		{
 			cin>>j;
 
-			int lower = lower__bound(a,a+n,j);
+			int lower = lower__bound(array,array+n,j)-array;
 
 			if( lower == n)
 			{
 				cout<<"number doesn't exist and every element in the array is less than given number and lower bound is "<<lower<<endl;
 			}
-			else if( lower==0 && a[lower]!=j)
+			else if( lower==0 && array[lower]!=j)
 			{
 				cout<<"number doesn't exist and every element in the array is greater than given number and lower bound is 0\n";
 			}
-			else if(a[lower]!=j)
+			else if(array[lower]!=j)
 			{
 				cout<<"number doesn't exist but lower bound is "<<lower<<endl;
 			}
@@ -93,17 +108,17 @@ int main()
 		{
 			cin>>j;
 
-			int upper = upper__bound(a,a+n,j);
+			int upper = upper__bound(array,array+n,j)-array;
 
 			if( upper == 0 )
 			{
 				cout<<"number doesn't exist and every element in the array is greater than given number and upper bound is 0\n";
 			}
-			else if(upper==n &&a[upper-1]!=j)
+			else if(upper==n &&array[upper-1]!=j)
 			{
 				cout<<"number doesn't exist and every element in the array is less than given number and upper bound is "<<upper<<endl;
 			}
-			else if(a[upper-1]!=j)
+			else if(array[upper-1]!=j)
 			{
 				cout<<"number doesn't exist but upper bound is "<<upper<<endl;
 			}
