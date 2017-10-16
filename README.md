@@ -1,1 +1,1 @@
-# competetive_coding
+# this is an experiment to implement some algorithms and codes of those algorithms
