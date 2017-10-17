@@ -15,9 +15,10 @@ using namespace std;
 
 int* binary_search(int *start,int *end,int find)
 {
-	int *mid=(start+end)/2;
+	int *mid;
 	while(start<end)
 	{
+		mid=(start+end)/2;
 		if(*mid==find)
 		{
 			return mid;
