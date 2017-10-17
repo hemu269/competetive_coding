@@ -15,7 +15,7 @@ using namespace std;
 
 int* binary_search(int *start,int *end,int find)
 {
-	int *mid,*first;
+	int *mid,*first=start;
 	int count;
 	while(start<end)
 	{
@@ -34,7 +34,7 @@ int* binary_search(int *start,int *end,int find)
 			end = mid;
 		}
 	}
-	return start-1;
+	return first-1;
 }
 
 int* lower__bound(int *start,int *end,int find)
@@ -84,7 +84,7 @@ int main()
 		{
 			cin>>j;
 			int is_found = binary_search(array,array+n,j)-array;    // here array is pointer for 1st element
-			if(is_found==-1||is_found==n)
+			if(is_found==-1)
 			{
 				cout<<"element not found\n";
 			}
