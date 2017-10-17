@@ -1,1 +1,1 @@
-# algorithms and it's code
+# algorithms and data structures
