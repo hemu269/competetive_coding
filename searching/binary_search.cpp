@@ -39,15 +39,72 @@ int* binary_search(int *start,int *end,int find)
 
 int* lower__bound(int *start,int *end,int find)
 {
-
-	return start;
-
+	if(*start==find)
+	{
+		return start;
+	}
+	int *mid,*last=end;
+	int count;
+	while(start<end)
+	{
+		count=end-start;
+		mid=start+count/2;
+		if(*mid==find)
+		{
+			if(*(mid-1)==find)
+			{
+				end = mid;
+			}
+			else
+			{
+				return mid;
+			}
+		}
+		else if(*mid<find)
+		{
+			start = mid+1;
+		}
+		else
+		{
+			end = mid;
+		}
+	}
+	return end;
 }
 
 int* upper__bound(int *start,int *end,int find)
 {
-	return start;
-
+	if(*(end-1)<=find)
+	{
+		return end;
+	}
+	int *mid,*last=end;
+	int count;
+	while(start<end)
+	{
+		count=end-start;
+		mid=start+count/2;
+		if(*mid==find)
+		{
+			if(*(mid+1)==find)
+			{
+				start = mid+1;
+			}
+			else
+			{
+				return mid+1;
+			}
+		}
+		else if(*mid<find)
+		{
+			start = mid+1;
+		}
+		else
+		{
+			end = mid;
+		}
+	}
+	return end;
 }
 
 int main()
