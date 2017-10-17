@@ -34,7 +34,7 @@ int* binary_search(int *start,int *end,int find)
 			end = mid;
 		}
 	}
-	return end;
+	return last;
 }
 
 int* lower__bound(int *start,int *end,int find)
