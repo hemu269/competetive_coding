@@ -15,10 +15,12 @@ using namespace std;
 
 int* binary_search(int *start,int *end,int find)
 {
-	int *mid;
+	int *mid,*first;
+	int count;
 	while(start<end)
 	{
-		mid=(start+end)/2;
+		count=end-start;
+		mid=start+count/2;
 		if(*mid==find)
 		{
 			return mid;
@@ -50,9 +52,13 @@ int* upper__bound(int *start,int *end,int find)
 int main()
 {
 	int n;
+
+	//cout<<"enter size of array\n";
 	cin>>n;   // size of input array
 
 	int array[n];
+
+	//cout<<"enter elements\n";
 
 	for (int i = 0; i < n; i++)
 	{
@@ -62,18 +68,23 @@ int main()
 	sort(array,array+n);     // sorts the given array . we can do binary search iff the array is sorted
 
 	int queries;
+
+	//cout<<"enter count of queries\n";
 	cin>>queries;    //  no.of queries
 
 	while(queries--)
 	{
 		int i,j;
+		//cout<<"enter 0 for search and 1 for lower bound and 2 for upper bound\n";
 		cin>>i;
+
+		//cout<<"enter element \n";
 
 		if(i==0)          // whether the element is present in the array or not
 		{
 			cin>>j;
 			int is_found = binary_search(array,array+n,j)-array;    // here array is pointer for 1st element
-			if(is_found==-1)
+			if(is_found==-1||is_found==n)
 			{
 				cout<<"element not found\n";
 			}
