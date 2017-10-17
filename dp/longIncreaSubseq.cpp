@@ -23,7 +23,10 @@ int fun(int a[],int n)
 }
 int main()
 {
-    memset(&dp,-1,sizeof(dp));
+    for (int i = 0; i < 100; ++i)
+    {
+        dp[i]=-1;
+    }
     int n;
     cin>>n;
     int a[n];
