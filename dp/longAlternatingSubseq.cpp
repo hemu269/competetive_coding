@@ -21,7 +21,7 @@ int main()
                 dp[i][1]=dp[j][0]+1;
         }
         if(ans<max(dp[i][0],dp[i][1]))
-            ans=max(dp[i][0],dp[i][1]);
+            ans=max(dp[i][0],dp[i][1]); 
     }
     cout<<ans<<endl;
     return 0;
