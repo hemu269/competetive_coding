@@ -1,1 +1,1 @@
-# this is an experiment to implement some algorithms and codes of those algorithms
+# algorithms and it's code
