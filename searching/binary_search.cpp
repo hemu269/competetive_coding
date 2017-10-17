@@ -6,7 +6,6 @@
 
 // the index of the element that is next larger whether the element exists or not 
 
-
 //we can do all the below if the array is sorted
 
 #include<bits/stdc++.h>
@@ -201,4 +200,3 @@ int main()
 
 	return 0;
 }
-
